@@ -1,0 +1,774 @@
+{
+  "location": "Koeln",
+  "data": [
+    {
+      "Time": "2022-01-07T06:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 28,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T07:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 26,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T08:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 24,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T09:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 21,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T10:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 20,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T11:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 19,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T12:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 18,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T13:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 19,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T14:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 20,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T15:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 20,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T16:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 21,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T17:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 21,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T18:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 22,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T19:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 22,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T20:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 22,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T21:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 22,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T22:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 22,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-07T23:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 23,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T00:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 24,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T01:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 25,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T02:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 25,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T03:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 26,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T04:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 27,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T05:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 28,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T06:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 29,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T07:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 29,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T08:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 28,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T09:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 28,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T10:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 29,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T11:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 31,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T12:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 33,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T13:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 38,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T14:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 42,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T15:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 47,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T16:00:00Z",
+      "WIND_GUST_ACC": 0,
+      "WIND_GUST": 55,
+      "Warning": 75,
+      "Validity": "",
+      "Intensity": 70.956
+    },
+    {
+      "Time": "2022-01-08T17:00:00Z",
+      "WIND_GUST_ACC": 62.89,
+      "WIND_GUST": 63,
+      "Warning": 75,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T18:00:00Z",
+      "WIND_GUST_ACC": 133.85,
+      "WIND_GUST": 71,
+      "Warning": 75,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T19:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 65,
+      "Warning": 75,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T20:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 59,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T21:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 53,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T22:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 48,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-08T23:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 43,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T00:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 38,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T01:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 36,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T02:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 34,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T03:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 31,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T04:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 37,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T05:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 42,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T06:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 48,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T07:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 51,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T08:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 54,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T09:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 57,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T10:00:00Z",
+      "WIND_GUST_ACC": 198.79,
+      "WIND_GUST": 60,
+      "Warning": 95,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T11:00:00Z",
+      "WIND_GUST_ACC": 261.68,
+      "WIND_GUST": 63,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": 90.612
+    },
+    {
+      "Time": "2022-01-09T12:00:00Z",
+      "WIND_GUST_ACC": 327.74,
+      "WIND_GUST": 66,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T13:00:00Z",
+      "WIND_GUST_ACC": 393.34,
+      "WIND_GUST": 66,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T14:00:00Z",
+      "WIND_GUST_ACC": 458.46,
+      "WIND_GUST": 65,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T15:00:00Z",
+      "WIND_GUST_ACC": 523.15,
+      "WIND_GUST": 65,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T16:00:00Z",
+      "WIND_GUST_ACC": 587.52,
+      "WIND_GUST": 64,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T17:00:00Z",
+      "WIND_GUST_ACC": 651.56,
+      "WIND_GUST": 64,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T18:00:00Z",
+      "WIND_GUST_ACC": 715.32,
+      "WIND_GUST": 64,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T19:00:00Z",
+      "WIND_GUST_ACC": 776.45,
+      "WIND_GUST": 61,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T20:00:00Z",
+      "WIND_GUST_ACC": 776.45,
+      "WIND_GUST": 59,
+      "Warning": 95,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T21:00:00Z",
+      "WIND_GUST_ACC": 776.45,
+      "WIND_GUST": 56,
+      "Warning": 95,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T22:00:00Z",
+      "WIND_GUST_ACC": 839.38,
+      "WIND_GUST": 63,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-09T23:00:00Z",
+      "WIND_GUST_ACC": 909.36,
+      "WIND_GUST": 70,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T00:00:00Z",
+      "WIND_GUST_ACC": 986.36,
+      "WIND_GUST": 77,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T01:00:00Z",
+      "WIND_GUST_ACC": 1060.49,
+      "WIND_GUST": 74,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T02:00:00Z",
+      "WIND_GUST_ACC": 1131.77,
+      "WIND_GUST": 71,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T03:00:00Z",
+      "WIND_GUST_ACC": 1200.2,
+      "WIND_GUST": 68,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T04:00:00Z",
+      "WIND_GUST_ACC": 1267.74,
+      "WIND_GUST": 68,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T05:00:00Z",
+      "WIND_GUST_ACC": 1334.41,
+      "WIND_GUST": 67,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T06:00:00Z",
+      "WIND_GUST_ACC": 1400.18,
+      "WIND_GUST": 66,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T07:00:00Z",
+      "WIND_GUST_ACC": 1464.16,
+      "WIND_GUST": 64,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T08:00:00Z",
+      "WIND_GUST_ACC": 1526.36,
+      "WIND_GUST": 62,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T09:00:00Z",
+      "WIND_GUST_ACC": 1586.77,
+      "WIND_GUST": 60,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T10:00:00Z",
+      "WIND_GUST_ACC": 1651.18,
+      "WIND_GUST": 64,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T11:00:00Z",
+      "WIND_GUST_ACC": 1719.54,
+      "WIND_GUST": 68,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T12:00:00Z",
+      "WIND_GUST_ACC": 1791.86,
+      "WIND_GUST": 72,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T13:00:00Z",
+      "WIND_GUST_ACC": 1869.8,
+      "WIND_GUST": 78,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T14:00:00Z",
+      "WIND_GUST_ACC": 1953.36,
+      "WIND_GUST": 84,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T15:00:00Z",
+      "WIND_GUST_ACC": 2042.53,
+      "WIND_GUST": 89,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T16:00:00Z",
+      "WIND_GUST_ACC": 2132.17,
+      "WIND_GUST": 90,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T17:00:00Z",
+      "WIND_GUST_ACC": 2222.32,
+      "WIND_GUST": 90,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T18:00:00Z",
+      "WIND_GUST_ACC": 2312.93,
+      "WIND_GUST": 91,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T19:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 75,
+      "Warning": 95,
+      "Validity": ">60",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T20:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 60,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T21:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 44,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T22:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 42,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-10T23:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 39,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-11T00:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 37,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-11T01:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 36,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-11T02:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 36,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-11T03:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 36,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-11T04:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 39,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    },
+    {
+      "Time": "2022-01-11T05:00:00Z",
+      "WIND_GUST_ACC": 2388.02,
+      "WIND_GUST": 43,
+      "Warning": 0,
+      "Validity": "",
+      "Intensity": ""
+    }
+  ]
+}
+

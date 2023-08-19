@@ -1,27 +1,52 @@
 # ForecastCharts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+In order to give the meteorologists a tool where they can easily interact with forecast data and feedback produced by them.
+This application was built on [Angular 16.2.0](https://github.com/angular/angular-cli).
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Overview
 
-## Build
+The `forecast-charts` integrates a visualization process where users can add different warnings that the person in charge
+of a `Meteorologist` organization compares the results.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Follow this steps to get `forecast-charts` up and running:
 
-## Further help
+1. Be sure to have AngularCLI installed in your machine.
+2. Clone this repository `git clone https://github.com/marcmelchor/forecast-charts.git`.
+3. Build the project `ng build`.
+4. Run the project `ng serve`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributing
+
+Contributions are welcome! Follow these steps:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-new-feature`
+3. Make changes and commit: `git commit -am 'Add new feature'`
+4. Push the branch: `git push origin feature-new-feature`
+5. Open a pull request.
+
+
+## License
+
+This project is licensed under the <u>[MIT License](https://opensource.org/license/mit/)</u>.
+
+
+## Contact
+
+For questions or feedback, you can reach me at <u>marc.melchor@outlook.com</u> or follow me on <b>LinkedIn</b> <u>@marc-melchor</u>.
