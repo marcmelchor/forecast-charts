@@ -1,8 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 
 import * as ForecastDataActions from './forecast-data.actions';
+import { Forecast, ForecastData } from '../../models/forecast-data.model';
 import { ForecastDataState, initialState } from './forecast-data.state';
-import { ForecastData } from '../../models/forecast-data.model';
 
 const _forecastReducer = createReducer(
   initialState,
@@ -23,8 +23,13 @@ const _forecastReducer = createReducer(
       }
       let forecast: ForecastData = structuredClone(forecastData);
       forecast.id = forecastId;
+      forecast.yMaxValue = Math.ceil(Math.max(...forecast.data.map((data: Forecast) => data.WIND_GUST)) / 10) * 10;
+
+      // Format time
+      forecast.data.map((data: Forecast) => data.Time = data.Time.slice(5, 16).replace('-', '.').replace('T', ' '))
       let forecastDataList: ForecastData[] = structuredClone(state.forecastDataList);
       forecastDataList.push(forecast);
+
       return {
         ...state,
         forecastDataList,

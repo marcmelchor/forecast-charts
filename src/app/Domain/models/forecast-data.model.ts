@@ -2,9 +2,10 @@ export interface ForecastData {
   id?: number;
   location: string;
   data: Forecast[];
+  yMaxValue: number;
 }
 
-interface Forecast {
+export interface Forecast {
   Time: string;
   WIND_GUST_ACC: number;
   WIND_GUST: number;

@@ -3,7 +3,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { ForecastDataState } from './forecast-data.state';
 import { ForecastData } from '../../models/forecast-data.model';
 
-export const FORECAST_DATA_NAME: string = 'forecast-data';
+export const FORECAST_DATA_NAME: string = 'forecastData';
 
 const getForecastState = createFeatureSelector<ForecastDataState>(FORECAST_DATA_NAME);
 
