@@ -1,6 +1,16 @@
-<p style="margin: 25px; font-size: 18px;">{{ forestData.location }}</p>
-<div style="display: flex;">
-  <div style="width: 1000px; margin: auto;">
+<p class="forecast--location">{{ forecastData.location }}</p>
+<div class="display--flex">
+  <div class="forecast--chart-container">
     <canvas id="forecast-data">{{ chart }}</canvas>
+  </div>
+</div>
+
+<div class="display--flex margin__top--5 margin__bottom--5">
+  <div class="pagination margin--auto">
+    <a
+      *ngFor="let test of tests"
+      [ngClass]="Number(forecastData.id) === Number(test.testCase.replace(rex, '')) ? 'active' : ''"
+      (click)="onPagination(Number(test.testCase.replace(rex, '')))">
+      {{ test.testCase.replace(rex, '') }}</a>
   </div>
 </div>

@@ -12,11 +12,14 @@ import { ForecastDataEffect } from './Domain/state/forecast-data/forecast-data.e
 import { TestCaseEffect } from './Domain/state/test-case/test-case.effect';
 import { UserComponent } from './UI/user/user.component';
 import { UserEffect } from './Domain/state/user/user.effect';
+import { MainComponent } from './UI/main/main.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
+    MainComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -25,6 +28,7 @@ import { UserEffect } from './Domain/state/user/user.effect';
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([ForecastDataEffect, UserEffect, TestCaseEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

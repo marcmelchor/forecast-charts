@@ -1,0 +1,19 @@
+<div class="display--flex margin__top--5">
+  <div class="margin--auto">
+    <div class="display--flex">
+      <p class="margin--auto">Time to choose a user</p>
+    </div>
+    <div class="display--block margin__top--2 body">
+      <select class="select" (change)="onSelectUser($event)">
+        <option
+          class="select--option"
+          *ngFor="let user of users"
+          [defaultSelected]="user.name === defaultSelect"
+          [disabled]="user.name === defaultSelect"
+          [hidden]="user.name === defaultSelect"
+          [value]="user.name">
+          {{ user.name }}</option>
+      </select>
+    </div>
+  </div>
+</div>

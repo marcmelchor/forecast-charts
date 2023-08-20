@@ -1,0 +1,34 @@
+.forecast {
+  &--location {
+    margin: 4.5rem;
+    font-size: 4rem;
+  }
+
+  &--chart-container {
+    width: 1000px;
+    margin: auto;
+  }
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}

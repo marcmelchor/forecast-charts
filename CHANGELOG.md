@@ -15,3 +15,7 @@ All notable changes to this project will be documented in this file.
 
 - `Chart.js` package added in order to visualize graphs.
 - `chartjs-plugin-annotation` plugin appended in order to add box annotations on the fly.
+- State management for `warnings` and `selected` (which is the state for the current user and testCase).
+- Choose user component appended.
+- Test page component added.
+- Routing functionality upp and running.

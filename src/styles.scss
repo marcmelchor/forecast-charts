@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+p, div {
+  font-size: 1.6rem;
+}
+
+.display {
+  &--block {
+    display: block;
+  }
+
+  &--flex {
+    display: flex;
+  }
+}
+
+.margin {
+  &--auto {
+    margin: auto;
+  }
+
+  &__top {
+    &--2 {
+      margin-top: 2rem;
+    }
+
+    &--5 {
+      margin-top: 5rem;
+    }
+  }
+
+  &__bottom {
+    &--5 {
+      margin-bottom: 5rem;
+    }
+  }
+}

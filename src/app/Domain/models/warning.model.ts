@@ -4,10 +4,10 @@ export enum WarningTypes {
   YELLOW = 'yellow',
 }
 
-export interface WarningModel {
+export interface Warning {
   endingTime: string;
   startingTime: string;
-  testCase: string;
+  testCase: number;
   user: string;
   warningType: WarningTypes;
 }
