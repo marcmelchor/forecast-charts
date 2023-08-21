@@ -27,3 +27,8 @@ All notable changes to this project will be documented in this file.
 - Remove warnings.
 - Visualize warnings.
 - Load previous warnings.
+
+
+## [0.3.1] -- 2023-08-21
+
+- README file updated.
