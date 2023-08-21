@@ -5,8 +5,8 @@ export enum WarningTypes {
 }
 
 export interface Warning {
-  endingTime: string;
-  startingTime: string;
+  endingTime: number;
+  startingTime: number;
   testCase: number;
   user: string;
   warningType: WarningTypes;

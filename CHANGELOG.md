@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 - Sum the routing to the project.
 - Added `user` component to test dispatching the reducers.
 
-## [0.2.0] -- 2023-09-19
+## [0.2.0] -- 2023-08-19
 
 - `Chart.js` package added in order to visualize graphs.
 - `chartjs-plugin-annotation` plugin appended in order to add box annotations on the fly.
@@ -19,3 +19,11 @@ All notable changes to this project will be documented in this file.
 - Choose user component appended.
 - Test page component added.
 - Routing functionality upp and running.
+
+
+## [0.3.0] -- 2023-08-20
+
+- Add warnings.
+- Remove warnings.
+- Visualize warnings.
+- Load previous warnings.

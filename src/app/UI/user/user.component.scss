@@ -32,3 +32,36 @@
   background-color: #ddd;
   border-radius: 5px;
 }
+
+.buttons {
+  &__container {
+    justify-content: center;
+    width: 40rem;
+  }
+
+  &__item {
+    // background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.6rem;
+    margin: 0.4rem 0.2rem;
+    cursor: pointer;
+    border-radius: 0.8rem;
+
+    &--blue {
+      background-color: #008CBA;
+    }
+
+    &--black {
+      background-color: #555;
+    }
+
+    &--spacing {
+      margin-right: 2rem;
+    }
+  }
+}

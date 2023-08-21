@@ -1,5 +1,12 @@
-<p class="forecast--location">{{ forecastData.location }}</p>
-<div class="display--flex">
+<p class="forecast--location">{{ forecastData.location }} <span
+  style="font-size: 2rem;"> (Review made by <b>{{ selected.name }})</b></span></p>
+<div class="display--flex margin__bottom--5">
+  <div class="display--flex margin--auto buttons__container">
+    <button class="buttons__item buttons__item--blue buttons__item--spacing">Switch User</button>
+    <button class="buttons__item buttons__item--black">Review Test Case</button>
+  </div>
+</div>
+<div class="display--flex margin__top--5">
   <div class="forecast--chart-container">
     <canvas id="forecast-data">{{ chart }}</canvas>
   </div>
@@ -12,5 +19,74 @@
       [ngClass]="Number(forecastData.id) === Number(test.testCase.replace(rex, '')) ? 'active' : ''"
       (click)="onPagination(Number(test.testCase.replace(rex, '')))">
       {{ test.testCase.replace(rex, '') }}</a>
+  </div>
+</div>
+
+<div class="display--flex margin__bottom--5">
+  <div class="display--flex margin--auto">
+    <div class="body-select buttons__item--spacing">
+      <select
+        [(ngModel)]="startingTime"
+        class="select"
+        style="width: 18rem;">
+        <option
+          class="select--option"
+          [value]="i"
+          *ngFor="let data of forecastData.data; let i = index" [attr.data-index]="i">
+          {{ data.Time }}</option>
+      </select>
+    </div>
+    <div class="body-select buttons__item--spacing">
+      <select
+        [(ngModel)]="endingTime"
+        class="select"
+        style="width: 18rem;">
+        <option
+          class="select--option"
+          [value]="i"
+          *ngFor="let data of startingTime === - Infinity ? forecastData.data : forecastData.data.slice(Number(startingTime) + 1); let i = index" [attr.data-index]="i">
+          {{ data.Time }}</option>
+      </select>
+    </div>
+    <div class="body-select" style="margin-right: 5rem;">
+      <select
+        [(ngModel)]="warningType"
+        class="select"
+        style="width: 18rem;">
+        <option
+          class="select--option"
+          *ngFor="let data of warningTypes">
+          {{ data }}</option>
+      </select>
+    </div>
+    <button
+      class="buttons__item buttons__item--blue buttons__item--spacing"
+      (click)="addWarningType()">Add Warning
+    </button>
+  </div>
+</div>
+
+<div class="display--flex margin__bottom--5 margin__top--5">
+  <div class="display--flex margin--auto" style="width: 90rem;">
+    <hr style="width: 100%"/>
+  </div>
+</div>
+
+<div class="display--flex margin__bottom--5 margin__top--5">
+  <div class="display--block margin--auto">
+    <div
+      *ngFor="let warning of warningsByUserAndTestCase"
+      class="display--flex" style="width: 90rem;">
+      <div class="margin--auto buttons__item--spacing">
+        <p>
+          {{ forecastData.data[warning.startingTime].Time }} - {{ forecastData.data[warning.endingTime].Time }}
+          - {{ warning.warningType.toUpperCase() }}
+        </p>
+      </div>
+      <button
+        class="buttons__item buttons__item--blue"
+        (click)="removeWarningType(warning.startingTime, warning.endingTime, warning.warningType)">Remove Warning
+      </button>
+    </div>
   </div>
 </div>
