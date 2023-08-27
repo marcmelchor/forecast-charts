@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as ForecastActions from './forecast-data/forecast-data.actions';
@@ -9,26 +10,32 @@ import { AppState } from './app.state';
 import { Selected } from '../models/selected.model';
 import { Warning } from '../models/warning.model';
 
-export function dispatchInvokeForecastData(store: Store<AppState>, forecastId: number): void {
-  store.dispatch(ForecastActions.invokeGetForecastData({ forecastId }));
-}
+@Injectable({ providedIn: 'root' })
+export class Dispatchers {
+  constructor(private store: Store<AppState>) {
+  }
 
-export function dispatchInvokeTestCases(store: Store<AppState>): void {
-  store.dispatch(TestCaseActions.invokeGetTestCases());
-}
+  invokeForecastData(forecastId: number): void {
+    this.store.dispatch(ForecastActions.invokeGetForecastData({ forecastId }));
+  }
 
-export function dispatchInvokeUsers(store: Store<AppState>): void {
-  store.dispatch(UserActions.invokeGetUsers());
-}
+  invokeTestCases(): void {
+    this.store.dispatch(TestCaseActions.invokeGetTestCases());
+  }
 
-export function dispatchInvokePostWarning(store: Store<AppState>, warning: Warning): void {
-  store.dispatch(WarningActions.postWarning({ warning }));
-}
+  invokeUsers(): void {
+    this.store.dispatch(UserActions.invokeGetUsers());
+  }
 
-export function dispatchInvokeRemoveWarning(store: Store<AppState>, warning: Warning): void {
-  store.dispatch(WarningActions.removeWarning({ warning }));
-}
+  invokePostWarning(warning: Warning): void {
+    this.store.dispatch(WarningActions.postWarning({ warning }));
+  }
 
-export function dispatchSetSelected(store: Store<AppState>, selectedUser: Selected): void {
-  store.dispatch(SelectedActions.setSelected({ selectedUser }));
+  invokeRemoveWarning(warning: Warning): void {
+    this.store.dispatch(WarningActions.removeWarning({ warning }));
+  }
+
+  setSelected(selectedUser: Selected): void {
+    this.store.dispatch(SelectedActions.setSelected({ selectedUser }));
+  }
 }

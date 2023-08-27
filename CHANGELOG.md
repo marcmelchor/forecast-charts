@@ -36,3 +36,4 @@ All notable changes to this project will be documented in this file.
 ## [0.4.0] -- 2023-08-27
 
 - Local storage functionality.
+- Dispatchers, is now a class in order to pass the `store` as a parameter.

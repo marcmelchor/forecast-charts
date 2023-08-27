@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
-import * as Dispatchers from '../../Domain/state/dispatchers';
 import * as UserSelector from '../../Domain/state/user/user.selector';
+import { Dispatchers } from '../../Domain/state/dispatchers';
 import { AppState } from '../../Domain/state/app.state';
 import { User } from '../../Domain/models/user.model';
 import { Router } from '@angular/router';
@@ -23,12 +23,12 @@ export class MainComponent implements OnInit {
       }
     });
 
-  constructor(private store: Store<AppState>, private router: Router) {
+  constructor(private store: Store<AppState>, private router: Router, private dispatchers: Dispatchers) {
   }
 
   ngOnInit(): void {
-    Dispatchers.dispatchInvokeUsers(this.store);
-    Dispatchers.dispatchInvokeTestCases(this.store);
+    this.dispatchers.invokeUsers();
+    this.dispatchers.invokeTestCases();
   }
 
   onSelectUser(selected: Event): void {

@@ -5,17 +5,17 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
-import * as Dispatchers from '../../Domain/state/dispatchers';
 import * as ForecastDataSelector from '../../Domain/state/forecast-data/forecast-data.selector';
 import * as SelectedSelector from '../../Domain/state/selected/selected.selector';
 import * as TestCaseSelector from '../../Domain/state/test-case/test-case.selector';
 import * as UserSelector from '../../Domain/state/user/user.selector';
 import * as WarningSelector from '../../Domain/state/warning/warning.selector';
 import { AppState } from '../../Domain/state/app.state';
+import { Dispatchers } from '../../Domain/state/dispatchers';
 import { Forecast, ForecastData } from '../../Domain/models/forecast-data.model';
+import { Selected } from '../../Domain/models/selected.model';
 import { TestCase } from '../../Domain/models/test-case.model';
 import { User } from '../../Domain/models/user.model';
-import { Selected } from '../../Domain/models/selected.model';
 import { Warning, WarningTypes } from '../../Domain/models/warning.model';
 
 @Component({
@@ -48,7 +48,7 @@ export class UserComponent implements OnInit {
         // Forecast data
         this.store.pipe(select(ForecastDataSelector.getForecastDataList))
           .subscribe((data: ForecastData[]): void => {
-            Dispatchers.dispatchInvokeForecastData(this.store, this.selected.testCase);
+            this.dispatchers.invokeForecastData(this.selected.testCase);
             if (data.length) {
               this.forecastDataList = structuredClone(data);
 
@@ -83,7 +83,12 @@ export class UserComponent implements OnInit {
   protected endingTime: number = -Infinity;
   protected warningType: string = '';
 
-  constructor(private store: Store<AppState>, private activeRoute: ActivatedRoute, private router: Router) {
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private dispatchers: Dispatchers,
+    private router: Router,
+    private store: Store<AppState>,
+  ) {
   }
 
   createChart(): void {
@@ -166,15 +171,13 @@ export class UserComponent implements OnInit {
     const startingTime: number = Number(this.startingTime);
     const endingTime: number = Number(this.endingTime) + (startingTime + 1);
     const colorWarning: WarningTypes = this.colorWarning(this.warningType);
-    Dispatchers.dispatchInvokePostWarning(
-      this.store,
-      {
-        startingTime,
-        endingTime,
-        testCase: this.selected.testCase,
-        user: this.selected.name,
-        warningType: colorWarning,
-      });
+    this.dispatchers.invokePostWarning({
+      startingTime,
+      endingTime,
+      testCase: this.selected.testCase,
+      user: this.selected.name,
+      warningType: colorWarning,
+    });
     const color: string = this.rgbWarningColor(colorWarning);
     if (this.forecastData) {
       this.addAnnotation(
@@ -191,10 +194,13 @@ export class UserComponent implements OnInit {
 
   removeWarningType(startingTime: number, endingTime: number, warning: string): void {
     const warningType: WarningTypes = this.colorWarning(warning);
-    Dispatchers.dispatchInvokeRemoveWarning(
-      this.store,
-      { startingTime, endingTime, testCase: this.selected.testCase, user: this.selected.name, warningType }
-    );
+    this.dispatchers.invokeRemoveWarning({
+      startingTime,
+      endingTime,
+      testCase: this.selected.testCase,
+      user: this.selected.name,
+      warningType,
+    });
     delete this.chart.options.plugins.annotation.annotations[`${this.selected.name}-box-${startingTime}-${endingTime}`];
     this.chart.update();
   }
@@ -207,18 +213,15 @@ export class UserComponent implements OnInit {
     Chart.register(annotationPlugin);
     this.createChart();
     this.activeRoute.params.subscribe((params: Params): void => {
-      Dispatchers.dispatchSetSelected(
-        this.store,
-        { name: params['username'], testCase: Number(params['testCase']) }
-      );
+      this.dispatchers.setSelected({ name: params['username'], testCase: Number(params['testCase']) });
     });
     if (!this.tests.length) {
-      Dispatchers.dispatchInvokeTestCases(this.store);
+      this.dispatchers.invokeTestCases();
     }
     if (!this.users.length) {
-      Dispatchers.dispatchInvokeUsers(this.store);
+      this.dispatchers.invokeUsers();
     }
-    Dispatchers.dispatchInvokeForecastData(this.store, this.selected.testCase);
+    this.dispatchers.invokeForecastData(this.selected.testCase);
   }
 
   protected readonly Number: NumberConstructor = Number;
