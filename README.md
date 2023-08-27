@@ -8,6 +8,7 @@ This application was built on [Angular 16.2.0](https://github.com/angular/angula
 - [Project Overview](#project-overview)
 - [Features](#features)
   - [State Management](#state-management)
+  - [Local Storage](#local-storage)
   - [Charts](#charts)
   - [Pagination](#pagination)
   - [Add and remove warnings](#add-and-remove-warnings)
@@ -33,6 +34,10 @@ of a `Meteorologist` organization compares the results.
   - `test-cases`
   - `users`
   - `warnings`
+
+- ### Local Storage
+  In order to preserve the data after reloading, and not reload all the previous data, a copy of the global state is sync to the local storage. Which
+  is included in the state via `metaReducers`.
 
 - ### Charts
   In order to visualize the data, it was the library `chart.js` and the plugin `chartjs-plugin-annotation` to add the warning boxes.
