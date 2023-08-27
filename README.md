@@ -12,6 +12,7 @@ This application was built on [Angular 16.2.0](https://github.com/angular/angula
   - [Charts](#charts)
   - [Pagination](#pagination)
   - [Add and remove warnings](#add-and-remove-warnings)
+  - [Switch User](#switch-user)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -47,6 +48,9 @@ of a `Meteorologist` organization compares the results.
 
 - ### Add and remove warnings
   Having in mind that this is also a module from the state management, you have the certainty that these values are stored.
+
+- ### Switch User
+  Functionality to switch user, from the list of users provided. At the moment to get back from a user that already has warnings stored, this data should be accesible.
 
 
 ## Installation
