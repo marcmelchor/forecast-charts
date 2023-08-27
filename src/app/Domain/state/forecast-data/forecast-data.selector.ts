@@ -8,4 +8,4 @@ const getForecastState = createFeatureSelector<ForecastDataState>(FORECAST_DATA_
 
 export const getForecastDataList = createSelector(getForecastState, (state: ForecastDataState) => {
   return state.forecastDataList;
-})
+});

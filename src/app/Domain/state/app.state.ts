@@ -1,3 +1,6 @@
+import { ActionReducer, MetaReducer } from '@ngrx/store';
+import { localStorageSync } from 'ngrx-store-localstorage';
+
 import * as fromForecastData from './forecast-data/forecast-data.reducer';
 import * as fromSelected from './selected/selected.reducer';
 import * as fromTestCase from './test-case/test-case.reducer';
@@ -24,3 +27,12 @@ export const appReducer = {
   user: fromUser.userReducer,
   warning: fromWarning.warningReducer,
 }
+
+function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({
+    keys: [ 'forecast', 'selected', 'testCase', 'user', 'warning' ],
+    rehydrate: true
+  })(reducer);
+}
+
+export const metaReducers: Array<MetaReducer<any, any>> = [ localStorageSyncReducer ];

@@ -6,7 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { appReducer } from './Domain/state/app.state';
+import { appReducer, metaReducers } from './Domain/state/app.state';
 import { AppRoutingModule } from './app-routing.module';
 import { ForecastDataEffect } from './Domain/state/forecast-data/forecast-data.effect';
 import { TestCaseEffect } from './Domain/state/test-case/test-case.effect';
@@ -25,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot(appReducer, { metaReducers }),
     EffectsModule.forRoot([ForecastDataEffect, UserEffect, TestCaseEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     ReactiveFormsModule,

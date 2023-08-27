@@ -29,6 +29,6 @@ export function dispatchInvokeRemoveWarning(store: Store<AppState>, warning: War
   store.dispatch(WarningActions.removeWarning({ warning }));
 }
 
-export function dispatchInvokeSetSelected(store: Store<AppState>, selectedUser: Selected): void {
+export function dispatchSetSelected(store: Store<AppState>, selectedUser: Selected): void {
   store.dispatch(SelectedActions.setSelected({ selectedUser }));
 }

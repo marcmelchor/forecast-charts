@@ -34,7 +34,6 @@ export class MainComponent implements OnInit {
   onSelectUser(selected: Event): void {
     const target: HTMLSelectElement = selected.target as HTMLSelectElement;
     if (target.value) {
-      Dispatchers.dispatchInvokeSetSelected(this.store, { name: target.value, testCase: 1 });
       this.router.navigate([`/test/${target.value}/1`]).then()
     }
   }

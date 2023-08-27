@@ -1,6 +1,5 @@
 <p class="forecast--location">{{ forecastData.location }} <span
   style="font-size: 2rem;"> (Review made by <b>{{ selected.name }})</b></span></p>
-<!--
 <div class="display--flex margin__bottom--5">
   <div class="display--flex margin--auto buttons__container">
     <button
@@ -9,7 +8,7 @@
     >Switch User</button>
     <button class="buttons__item buttons__item--black">Review Test Case</button>
   </div>
-</div>-->
+</div>
 <div class="display--flex margin__top--5">
   <div class="forecast--chart-container">
     <canvas id="forecast-data">{{ chart }}</canvas>
@@ -20,7 +19,7 @@
   <div class="pagination margin--auto">
     <a
       *ngFor="let test of tests"
-      [ngClass]="Number(forecastData.id) === Number(test.testCase.replace(rex, '')) ? 'active' : ''"
+      [ngClass]="Number(selected.testCase) === Number(test.testCase.replace(rex, '')) ? 'active' : ''"
       (click)="onPagination(Number(test.testCase.replace(rex, '')))">
       {{ test.testCase.replace(rex, '') }}</a>
   </div>

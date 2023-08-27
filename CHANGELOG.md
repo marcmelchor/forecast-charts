@@ -32,3 +32,7 @@ All notable changes to this project will be documented in this file.
 ## [0.3.1] -- 2023-08-21
 
 - README file updated.
+
+## [0.4.0] -- 2023-08-27
+
+- Local storage functionality.
