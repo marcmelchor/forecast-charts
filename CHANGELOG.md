@@ -37,3 +37,4 @@ All notable changes to this project will be documented in this file.
 
 - Local storage functionality.
 - Dispatchers, is now a class in order to pass the `store` as a parameter.
+- Encapsulation of chartService.

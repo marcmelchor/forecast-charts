@@ -1,5 +1,4 @@
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import annotationPlugin from 'chartjs-plugin-annotation';
 import { Chart } from 'chart.js/auto';
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
@@ -11,8 +10,9 @@ import * as TestCaseSelector from '../../Domain/state/test-case/test-case.select
 import * as UserSelector from '../../Domain/state/user/user.selector';
 import * as WarningSelector from '../../Domain/state/warning/warning.selector';
 import { AppState } from '../../Domain/state/app.state';
+import { ChartService } from '../../Data/services/chart.service';
 import { Dispatchers } from '../../Domain/state/dispatchers';
-import { Forecast, ForecastData } from '../../Domain/models/forecast-data.model';
+import { ForecastData } from '../../Domain/models/forecast-data.model';
 import { Selected } from '../../Domain/models/selected.model';
 import { TestCase } from '../../Domain/models/test-case.model';
 import { User } from '../../Domain/models/user.model';
@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
   warningsByUserAndTestCase: Warning[] = [];
   selected$: Subscription = this.store.pipe(select(SelectedSelector.getSelected))
     .subscribe((selected: Selected): void => {
-      if (this.chart instanceof Chart) {
+      if (this.chartService.chart instanceof Chart) {
         this.selected = structuredClone(selected);
         // Warnings List
         this.store.pipe(select(WarningSelector.getWarningsByTestCase(this.selected.testCase)))
@@ -56,18 +56,19 @@ export class UserComponent implements OnInit {
                 return item.id === this.selected.testCase;
               });
               if (forecast) {
+                console.log(0, forecast);
                 this.forecastData = structuredClone(forecast);
-                this.addData(this.forecastData.data);
-                if (this.chart.options.plugins.annotation.annotations) {
-                  this.deleteAnnotations();
+                this.chartService.addChart(this.forecastData.data);
+                if (this.chartService.chart.options.plugins.annotation.annotations) {
+                  this.chartService.deleteWarnings();
                   this.warningsByUserAndTestCase.map((warning: Warning): void => {
-                    this.addAnnotation(
+                    this.chartService.addWarning(
                       this.rgbWarningColor(warning.warningType),
                       warning.startingTime,
                       warning.endingTime,
                       forecast.yMaxValue,
                       `${this.selected.name}-box-${warning.startingTime}-${warning.endingTime}`
-                    )
+                    );
                   })
                 }
               }
@@ -76,7 +77,6 @@ export class UserComponent implements OnInit {
       }
     });
 
-  protected chart: Chart | any;
   protected rex: RegExp = /\D/g;
   protected warningTypes: string[] = ['red', 'orange', 'yellow'];
   protected startingTime: number = -Infinity;
@@ -85,64 +85,12 @@ export class UserComponent implements OnInit {
 
   constructor(
     private activeRoute: ActivatedRoute,
+    protected chartService: ChartService,
     private dispatchers: Dispatchers,
     private router: Router,
     private store: Store<AppState>,
   ) {
-  }
-
-  createChart(): void {
-    this.chart = new Chart('forecast-data', {
-      type: 'line',
-      data: {
-        labels: [],
-        datasets: [
-          {
-            borderColor: 'rgb(75, 192, 192)',
-            data: [],
-            label: 'WIND_GUST',
-            fill: false,
-            pointStyle: false,
-            tension: 0.1,
-          },
-        ]
-      },
-      options: {
-        plugins: {
-          annotation: {
-            annotations: {}
-          }
-        }
-      }
-    });
-  }
-
-  addData(forestData: Forecast[]): void {
-    this.chart.data.labels = forestData.map((data: Forecast) => data.Time);
-    this.chart.data.datasets[0].data = forestData.map((data: Forecast) => data.WIND_GUST);
-    this.chart.update();
-  }
-
-  addAnnotation(backgroundColor: string, xMin: number, xMax: number, yMax: number, boxName: string): void {
-    let plugins = this.chart.options.plugins;
-    // @ts-ignore
-    plugins.annotation.annotations[boxName] = {
-      backgroundColor,
-      scaleId: 'y',
-      type: 'box',
-      xMax,
-      xMin,
-      yMax,
-      yMin: 0
-    };
-    this.chart.update();
-  }
-
-  deleteAnnotations(): void {
-    Object.keys(this.chart.options.plugins.annotation.annotations).forEach((key: string): void => {
-      delete this.chart.options.plugins.annotation.annotations[key]
-    });
-    this.chart.update();
+    console.log(1, this.chartService);
   }
 
   onPagination(page: number): void {
@@ -180,7 +128,7 @@ export class UserComponent implements OnInit {
     });
     const color: string = this.rgbWarningColor(colorWarning);
     if (this.forecastData) {
-      this.addAnnotation(
+      this.chartService.addWarning(
         color,
         startingTime,
         endingTime,
@@ -201,8 +149,7 @@ export class UserComponent implements OnInit {
       user: this.selected.name,
       warningType,
     });
-    delete this.chart.options.plugins.annotation.annotations[`${this.selected.name}-box-${startingTime}-${endingTime}`];
-    this.chart.update();
+    this.chartService.deleteWarning(`${this.selected.name}-box-${startingTime}-${endingTime}`);
   }
 
   switchUser(): void {
@@ -210,8 +157,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    Chart.register(annotationPlugin);
-    this.createChart();
+    this.chartService.createChart('forecast-data');
     this.activeRoute.params.subscribe((params: Params): void => {
       this.dispatchers.setSelected({ name: params['username'], testCase: Number(params['testCase']) });
     });
