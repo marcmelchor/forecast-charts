@@ -35,12 +35,11 @@
 
 .buttons {
   &__container {
-    justify-content: center;
-    width: 40rem;
+    justify-content: space-between;
+    width: 46rem;
   }
 
   &__item {
-    // background-color: #4CAF50; /* Green */
     border: none;
     color: white;
     padding: 2rem;

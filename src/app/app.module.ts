@@ -14,12 +14,14 @@ import { UserComponent } from './UI/user/user.component';
 import { UserEffect } from './Domain/state/user/user.effect';
 import { MainComponent } from './UI/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ButtonComponent } from './UI/widgets/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     MainComponent,
+    ButtonComponent,
   ],
   imports: [
     AppRoutingModule,

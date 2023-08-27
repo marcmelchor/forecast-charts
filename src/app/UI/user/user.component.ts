@@ -156,6 +156,10 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/']).then()
   }
 
+  reviewTestCase(): void {
+    console.log('Review Test Case');
+  }
+
   ngOnInit(): void {
     this.chartService.createChart('forecast-data');
     this.activeRoute.params.subscribe((params: Params): void => {

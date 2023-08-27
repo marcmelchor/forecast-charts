@@ -2,11 +2,15 @@
   style="font-size: 2rem;"> (Review made by <b>{{ selected.name }})</b></span></p>
 <div class="display--flex margin__bottom--5">
   <div class="display--flex margin--auto buttons__container">
-    <button
-      class="buttons__item buttons__item--blue buttons__item--spacing"
-      (click)="switchUser()"
-    >Switch User</button>
-    <button class="buttons__item buttons__item--black">Review Test Case</button>
+    <app-button
+      buttonTittle="Switch User"
+      [primaryButton]="true"
+      (onClick)="switchUser()">
+    </app-button>
+    <app-button
+      buttonTittle="Review Test Case"
+      [primaryButton]="false"
+      (onClick)="reviewTestCase()"></app-button>
   </div>
 </div>
 <div class="display--flex margin__top--5">
