@@ -54,4 +54,9 @@ $primary-color: #3B3B3B;
       color: $primary-border;
     }
   }
+
+  &__small {
+    font-size: 1.2rem;
+    min-width: 16rem;
+  }
 }

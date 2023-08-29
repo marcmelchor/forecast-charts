@@ -14,14 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  defaultSelect: string = 'Choose an user';
   users: User[] = [];
   users$: Subscription = this.store.pipe(select(UserSelector.getUsers))
-    .subscribe((data: User[]) => {
-      if (data) {
-        this.users = [{ name: this.defaultSelect }].concat(data);
-      }
-    });
+    .subscribe((users: User[]) => this.users = users);
 
   constructor(private store: Store<AppState>, private router: Router, private dispatchers: Dispatchers) {
   }
@@ -34,7 +29,7 @@ export class MainComponent implements OnInit {
   onSelectUser(selected: Event): void {
     const target: HTMLSelectElement = selected.target as HTMLSelectElement;
     if (target.value) {
-      this.router.navigate([`/test/${target.value}/1`]).then()
+      this.router.navigate([`/test/${target.value}/1`]).then();
     }
   }
 }

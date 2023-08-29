@@ -1,6 +1,9 @@
 <button
   class="button"
-  [ngClass]="primaryButton ? '' : 'button__secondary'"
+  [ngClass]="buttonType === button.secondary ? 'button__secondary' :
+    buttonType === button.smallPrimary ? 'button__small' :
+      buttonType === button.smallSecondary ? 'button__secondary button__small' :
+        ''"
   (click)="buttonClicked()">
   {{ buttonTittle }}
 </button>

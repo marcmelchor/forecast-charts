@@ -56,7 +56,6 @@ export class UserComponent implements OnInit {
                 return item.id === this.selected.testCase;
               });
               if (forecast) {
-                console.log(0, forecast);
                 this.forecastData = structuredClone(forecast);
                 this.chartService.addChart(this.forecastData.data);
                 if (this.chartService.chart.options.plugins.annotation.annotations) {
@@ -90,14 +89,13 @@ export class UserComponent implements OnInit {
     private router: Router,
     private store: Store<AppState>,
   ) {
-    console.log(1, this.chartService);
   }
 
   onPagination(page: number): void {
     this.router.navigate([`/test/${this.selected.name}/${page}`]).then();
   }
 
-  colorWarning(warningType: string): WarningTypes {
+  protected colorWarning(warningType: string): WarningTypes {
     if (warningType === this.warningTypes[0]) {
       return WarningTypes.RED;
     }
@@ -107,7 +105,7 @@ export class UserComponent implements OnInit {
     return WarningTypes.YELLOW;
   }
 
-  rgbWarningColor(colorWarning: WarningTypes): string {
+  protected rgbWarningColor(colorWarning: WarningTypes): string {
     return colorWarning === WarningTypes.RED ?
       'rgb(131, 20, 20, 0.5)' :
       colorWarning === WarningTypes.ORANGE ?

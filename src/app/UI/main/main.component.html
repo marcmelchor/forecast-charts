@@ -7,10 +7,14 @@
       <select class="select" (change)="onSelectUser($event)">
         <option
           class="select--option"
+          [defaultSelected]="true"
+          [disabled]="true"
+          [value]="null"
+          >Choose a user
+        </option>
+        <option
+          class="select--option"
           *ngFor="let user of users"
-          [defaultSelected]="user.name === defaultSelect"
-          [disabled]="user.name === defaultSelect"
-          [hidden]="user.name === defaultSelect"
           [value]="user.name">
           {{ user.name }}</option>
       </select>

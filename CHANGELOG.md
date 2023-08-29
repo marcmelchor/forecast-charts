@@ -38,4 +38,8 @@ All notable changes to this project will be documented in this file.
 - Local storage functionality.
 - Dispatchers, is now a class in order to pass the `store` as a parameter.
 - Encapsulation of chartService.
-- Button widget.
+- Button widget. There are 4 types:
+  - Primary
+  - Secondary
+  - Small primary
+  - Small secondary
