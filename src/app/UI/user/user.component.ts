@@ -14,6 +14,7 @@ import { ChartService } from '../../Data/services/chart.service';
 import { Dispatchers } from '../../Domain/state/dispatchers';
 import { ForecastData } from '../../Domain/models/forecast-data.model';
 import { Selected } from '../../Domain/models/selected.model';
+import { SignalService } from '../../Data/services/signal.service';
 import { TestCase } from '../../Domain/models/test-case.model';
 import { User } from '../../Domain/models/user.model';
 import { Warning, WarningTypes } from '../../Domain/models/warning.model';
@@ -87,6 +88,7 @@ export class UserComponent implements OnInit {
     protected chartService: ChartService,
     private dispatchers: Dispatchers,
     private router: Router,
+    private signalService: SignalService,
     private store: Store<AppState>,
   ) {
   }
@@ -114,7 +116,6 @@ export class UserComponent implements OnInit {
   }
 
   onSelectStarting(selected: Event): void {
-    console.log('SELECTED', selected);
     const target: HTMLSelectElement = selected.target as HTMLSelectElement;
     if (target.value) {
       this.startingTime = Number(target.value);
@@ -155,6 +156,7 @@ export class UserComponent implements OnInit {
         this.forecastData.yMaxValue,
         `${this.selected.name}-box-${startingTime}-${endingTime}`);
     }
+    this.signalService.setMessage(`Warning Selector ${Math.random()}`);
     this.startingTime = -Infinity;
     this.endingTime = -Infinity;
     this.warningType = '';

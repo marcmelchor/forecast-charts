@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, effect, EventEmitter, Input, Output } from '@angular/core';
+
+import { SignalService } from '../../../Data/services/signal.service';
 
 @Component({
   selector: 'app-select',
@@ -11,7 +13,17 @@ export class SelectComponent {
   @Input() selectAttribute: string = '';
   @Input() defaultSelected: string = '';
   @Input() isIndexTheValue: boolean = false;
-  @Output() onSelect: EventEmitter<string> = new EventEmitter<string>()
+  @Output() onSelect: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(private signalService: SignalService) {
+    effect((): void => {
+      const value: string = this.signalService.getMessage();
+      if (value.includes('Warning Selector')) {
+        const selectElement: HTMLSelectElement = document.getElementById(`selector-${this.defaultSelected}`) as HTMLSelectElement;
+        selectElement.value = this.defaultSelected;
+      }
+    });
+  }
 
   onSelected(event: Event): void {
     const target: HTMLSelectElement = event.target as HTMLSelectElement;

@@ -1,6 +1,6 @@
 $primary-background: #fff;
 $primary-border: #1A1A1A;
-$primary-color: #3B3B3B;
+$primary-color: #3b3b3b;
 
 .button {
   appearance: none;
@@ -35,6 +35,8 @@ $primary-color: #3B3B3B;
 
   &:disabled {
     pointer-events: none;
+    background-color: $primary-color;
+    color: $primary-background;
   }
 
   &:hover {

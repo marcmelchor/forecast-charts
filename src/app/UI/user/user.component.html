@@ -1,32 +1,36 @@
-<p class="forecast--location">{{ forecastData.location }} <span
-  style="font-size: 2rem;"> (Review made by <b>{{ selected.name }})</b></span></p>
-<div class="display--flex margin__bottom--5">
-  <div class="display--flex margin--auto buttons-container">
-    <app-button
-      buttonTittle="Switch User"
-      buttonType="primary"
-      (onClick)="switchUser()">
-    </app-button>
-    <app-button
-      buttonTittle="Review Test Case"
-      buttonType="secondary"
-      (onClick)="reviewTestCase()"></app-button>
+<div class="display--flex" style="width: 100%; height: 15vh; align-items: center;">
+  <div class="display--flex" style="width: 50%; padding-left: 5rem;">
+    <p class="forecast--location">{{ forecastData.location }} <span
+      style="font-size: 2rem;"> (Review made by <b>{{ selected.name }})</b></span></p>
   </div>
-</div>
-<div class="display--flex margin__top--5">
-  <div class="forecast--chart-container">
-    <canvas id="forecast-data">{{ chartService.chart }}</canvas>
+  <div class="display--flex" style="width: 50%; justify-content: flex-end; padding-right: 5rem;">
+    <div class="display--flex">
+      <app-button
+        buttonTittle="Switch User"
+        buttonType="primary"
+        (onClick)="switchUser()">
+      </app-button>
+    </div>
+    <div class="display--flex" style="padding-left: 4rem;">
+      <app-button
+        buttonTittle="Review Test Case"
+        buttonType="secondary"
+        (onClick)="reviewTestCase()">
+      </app-button>
+    </div>
   </div>
 </div>
 
-<div class="display--flex margin__top--5 margin__bottom--5">
-  <div class="pagination">
-    <a
-      *ngFor="let test of tests"
-      [ngClass]="Number(selected.testCase) === Number(test.testCase.replace(rex, '')) ? 'active' : ''"
-      (click)="onPagination(Number(test.testCase.replace(rex, '')))">
-      {{ test.testCase.replace(rex, '') }}</a>
-  </div>
+<div class="forecast--chart-container" style="margin: 3rem auto;">
+  <canvas id="forecast-data">{{ chartService.chart }}</canvas>
+</div>
+
+<div class="pagination">
+  <a
+    *ngFor="let test of tests"
+    [ngClass]="Number(selected.testCase) === Number(test.testCase.replace(rex, '')) ? 'active' : ''"
+    (click)="onPagination(Number(test.testCase.replace(rex, '')))">
+    {{ test.testCase.replace(rex, '') }}</a>
 </div>
 
 <div class="display--flex margin__bottom--5 selector">
@@ -53,33 +57,29 @@
   <app-button
     buttonTittle="Add Warning"
     buttonType="small-primary"
-    [disabled]="startingTime < 0 && endingTime < 0 && !warningType"
+    [disabled]="startingTime < 0 || endingTime < 0 || !warningType"
     (onClick)="addWarningType()">
   </app-button>
 </div>
 
-<div class="display--flex margin__bottom--5 margin__top--5">
-  <div class="display--flex margin--auto" style="width: 90rem;">
-    <hr style="width: 100%"/>
-  </div>
+<div class="display--flex" style="width: 90rem; margin: 3rem auto;">
+  <hr style="width: 100%"/>
 </div>
 
-<div class="display--flex margin__bottom--5 margin__top--5">
-  <div class="display--block margin--auto">
-    <div
-      *ngFor="let warning of warningsByUserAndTestCase"
-      class="display--flex" style="width: 90rem;">
-      <div class="margin--auto buttons-container--spacing">
-        <p>
-          {{ forecastData.data[warning.startingTime].Time }} - {{ forecastData.data[warning.endingTime].Time }}
-          - {{ warning.warningType.toUpperCase() }}
-        </p>
-      </div>
-      <app-button
-        buttonTittle="Remove Warning"
-        buttonType="small-secondary"
-        (onClick)="removeWarningType(warning.startingTime, warning.endingTime, warning.warningType)">
-      </app-button>
+<div class="display--block">
+  <div
+    *ngFor="let warning of warningsByUserAndTestCase"
+    class="display--flex" style="width: 90rem; margin: 0 auto 3rem; justify-content: flex-end; align-items: center;">
+    <div style="padding-right: 3rem;">
+      <p>
+        {{ forecastData.data[warning.startingTime].Time }} - {{ forecastData.data[warning.endingTime].Time }}
+        - {{ warning.warningType.toUpperCase() }}
+      </p>
     </div>
+    <app-button
+      buttonTittle="Remove Warning"
+      buttonType="small-secondary"
+      (onClick)="removeWarningType(warning.startingTime, warning.endingTime, warning.warningType)">
+    </app-button>
   </div>
 </div>

@@ -11,9 +11,9 @@
 }
 
 .pagination {
-  display: inline-block;
-  margin-right: auto;
-  margin-left: auto;
+  display: flex;
+  margin: 0 auto 3rem;
+  justify-content: center;
 }
 
 .pagination a {
@@ -46,6 +46,7 @@
 
 .selector {
   justify-content: space-between;
+  align-items: center;
   width: 900px;
   margin: auto;
 }

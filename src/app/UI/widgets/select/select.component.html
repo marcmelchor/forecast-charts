@@ -1,12 +1,13 @@
 <div class="body-select">
   <select
     (change)="onSelected($event)"
-    class="select">
+    class="select"
+    [id]="'selector-' + defaultSelected">
     <option
       class="select--option"
+      [value]="defaultSelected"
       [defaultSelected]="true"
       [disabled]="true"
-      [value]="null"
     >{{ defaultSelected }}
     </option>
     <option
