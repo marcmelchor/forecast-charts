@@ -13,8 +13,9 @@ import { TestCaseEffect } from './Domain/state/test-case/test-case.effect';
 import { UserComponent } from './UI/user/user.component';
 import { UserEffect } from './Domain/state/user/user.effect';
 import { MainComponent } from './UI/main/main.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './UI/widgets/button/button.component';
+import { SelectComponent } from './UI/widgets/select/select.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ButtonComponent } from './UI/widgets/button/button.component';
     UserComponent,
     MainComponent,
     ButtonComponent,
+    SelectComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -31,7 +33,6 @@ import { ButtonComponent } from './UI/widgets/button/button.component';
     EffectsModule.forRoot([ForecastDataEffect, UserEffect, TestCaseEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     ReactiveFormsModule,
-    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

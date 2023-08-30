@@ -4,20 +4,12 @@
       <p class="margin--auto">Time to choose a user</p>
     </div>
     <div class="display--block margin__top--2 body-select">
-      <select class="select" (change)="onSelectUser($event)">
-        <option
-          class="select--option"
-          [defaultSelected]="true"
-          [disabled]="true"
-          [value]="null"
-          >Choose a user
-        </option>
-        <option
-          class="select--option"
-          *ngFor="let user of users"
-          [value]="user.name">
-          {{ user.name }}</option>
-      </select>
+      <app-select
+        (change)="onSelectUser($event)"
+        [inputData]="users"
+        selectAttribute="name"
+        defaultSelected="Choose an user">
+      </app-select>
     </div>
   </div>
 </div>

@@ -14,6 +14,7 @@ export class ButtonComponent {
   }
   @Input() buttonTittle: string = '';
   @Input() buttonType: string = this.button.primary;
+  @Input() disabled: boolean = false;
   @Output() onClick: EventEmitter<string> = new EventEmitter<string>();
 
   buttonClicked(): void {

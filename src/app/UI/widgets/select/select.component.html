@@ -1,0 +1,18 @@
+<div class="body-select">
+  <select
+    (change)="onSelected($event)"
+    class="select">
+    <option
+      class="select--option"
+      [defaultSelected]="true"
+      [disabled]="true"
+      [value]="null"
+    >{{ defaultSelected }}
+    </option>
+    <option
+      class="select--option"
+      [value]="isIndexTheValue ? i : data[selectAttribute]"
+      *ngFor="let data of inputData; let i = index" [attr.data-index]="i">
+      {{ isFlatData ? data : data[selectAttribute] }}</option>
+  </select>
+</div>

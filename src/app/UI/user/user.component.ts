@@ -113,6 +113,28 @@ export class UserComponent implements OnInit {
         'rgba(250,217,4,0.5)';
   }
 
+  onSelectStarting(selected: Event): void {
+    console.log('SELECTED', selected);
+    const target: HTMLSelectElement = selected.target as HTMLSelectElement;
+    if (target.value) {
+      this.startingTime = Number(target.value);
+    }
+  }
+
+  onSelectEnding(selected: Event): void {
+    const target: HTMLSelectElement = selected.target as HTMLSelectElement;
+    if (target.value) {
+      this.endingTime = Number(target.value);
+    }
+  }
+
+  onSelectWarning(selected: Event): void {
+    const target: HTMLSelectElement = selected.target as HTMLSelectElement;
+    if (target.value) {
+      this.warningType = target.value;
+    }
+  }
+
   addWarningType(): void {
     const startingTime: number = Number(this.startingTime);
     const endingTime: number = Number(this.endingTime) + (startingTime + 1);

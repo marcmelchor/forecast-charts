@@ -43,3 +43,4 @@ All notable changes to this project will be documented in this file.
   - Secondary
   - Small primary
   - Small secondary
+- Select widget.

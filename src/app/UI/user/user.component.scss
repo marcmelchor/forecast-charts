@@ -12,6 +12,8 @@
 
 .pagination {
   display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .pagination a {
@@ -40,4 +42,10 @@
   &--spacing {
     margin-right: 2rem;
   }
+}
+
+.selector {
+  justify-content: space-between;
+  width: 900px;
+  margin: auto;
 }

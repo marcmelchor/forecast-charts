@@ -4,6 +4,7 @@
     buttonType === button.smallPrimary ? 'button__small' :
       buttonType === button.smallSecondary ? 'button__secondary button__small' :
         ''"
+  [disabled]="disabled"
   (click)="buttonClicked()">
   {{ buttonTittle }}
 </button>
