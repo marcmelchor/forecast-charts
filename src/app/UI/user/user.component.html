@@ -22,7 +22,15 @@
 </div>
 
 <div class="forecast--chart-container" style="margin: 3rem auto;">
-  <canvas id="forecast-data">{{ chartService.chart }}</canvas>
+  <app-chart
+    chartName="forecast-data"
+    chartType="line"
+    [annotations]="warningsByUserAndTestCase"
+    [annotationLabels]="{ xMin: 'startingTime', xMax: 'endingTime', backgroundColor: 'warningType' }"
+    [inputData]="forecastData.data"
+    [inputDataLabels]="{ xLabel: 'WIND_GUST', yLabel: 'Time' }"
+    [yMax]="yMax">
+  </app-chart>
 </div>
 
 <div class="pagination">

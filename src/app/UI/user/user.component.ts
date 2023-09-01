@@ -1,5 +1,4 @@
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Chart } from 'chart.js/auto';
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subject, Subscription } from 'rxjs';
@@ -10,7 +9,6 @@ import * as TestCaseSelector from '../../Domain/state/test-case/test-case.select
 import * as UserSelector from '../../Domain/state/user/user.selector';
 import * as WarningSelector from '../../Domain/state/warning/warning.selector';
 import { AppState } from '../../Domain/state/app.state';
-import { ChartService } from '../../Data/services/chart.service';
 import { Dispatchers } from '../../Domain/state/dispatchers';
 import { ForecastData } from '../../Domain/models/forecast-data.model';
 import { Selected } from '../../Domain/models/selected.model';
@@ -36,44 +34,30 @@ export class UserComponent implements OnInit {
   warningsByUserAndTestCase: Warning[] = [];
   selected$: Subscription = this.store.pipe(select(SelectedSelector.getSelected))
     .subscribe((selected: Selected): void => {
-      if (this.chartService.chart instanceof Chart) {
-        this.selected = structuredClone(selected);
-        // Warnings List
-        this.store.pipe(select(WarningSelector.getWarningsByTestCase(this.selected.testCase)))
-          .subscribe((warnings: Warning[]): void => {
-            this.warningsByUserAndTestCase = warnings.filter((warning: Warning): boolean => {
-              return warning.user === this.selected.name;
-            })
-          });
-        // Forecast data
-        this.store.pipe(select(ForecastDataSelector.getForecastDataList))
-          .subscribe((data: ForecastData[]): void => {
-            this.dispatchers.invokeForecastData(this.selected.testCase);
-            if (data.length) {
-              this.forecastDataList = structuredClone(data);
+      this.selected = structuredClone(selected);
+      // Warnings List
+      this.store.pipe(select(WarningSelector.getWarningsByTestCase(this.selected.testCase)))
+        .subscribe((warnings: Warning[]): void => {
+          this.warningsByUserAndTestCase = warnings.filter((warning: Warning): boolean => {
+            return warning.user === this.selected.name;
+          })
+        });
+      // Forecast data
+      this.store.pipe(select(ForecastDataSelector.getForecastDataList))
+        .subscribe((data: ForecastData[]): void => {
+          this.dispatchers.invokeForecastData(this.selected.testCase);
+          if (data.length) {
+            this.forecastDataList = structuredClone(data);
 
-              const forecast: ForecastData | undefined = data.find((item: ForecastData): boolean => {
-                return item.id === this.selected.testCase;
-              });
-              if (forecast) {
-                this.forecastData = structuredClone(forecast);
-                this.chartService.addChart(this.forecastData.data);
-                if (this.chartService.chart.options.plugins.annotation.annotations) {
-                  this.chartService.deleteWarnings();
-                  this.warningsByUserAndTestCase.map((warning: Warning): void => {
-                    this.chartService.addWarning(
-                      this.rgbWarningColor(warning.warningType),
-                      warning.startingTime,
-                      warning.endingTime,
-                      forecast.yMaxValue,
-                      `${this.selected.name}-box-${warning.startingTime}-${warning.endingTime}`
-                    );
-                  })
-                }
-              }
+            const forecast: ForecastData | undefined = data.find((item: ForecastData): boolean => {
+              return item.id === this.selected.testCase;
+            });
+            if (forecast) {
+              this.yMax = forecast.yMaxValue;
+              this.forecastData = structuredClone(forecast);
             }
-          });
-      }
+          }
+        });
     });
 
   protected rex: RegExp = /\D/g;
@@ -83,10 +67,10 @@ export class UserComponent implements OnInit {
   protected warningType: string = '';
   protected resetSelectorsSubject: Subject<string> = new Subject<string>();
   protected warningSelectorGroup: string = 'Warnings';
+  protected yMax: number = 0;
 
   constructor(
     private activeRoute: ActivatedRoute,
-    protected chartService: ChartService,
     private dispatchers: Dispatchers,
     private router: Router,
     private store: Store<AppState>,
@@ -151,15 +135,6 @@ export class UserComponent implements OnInit {
       user: this.selected.name,
       warningType: colorWarning,
     });
-    const color: string = this.rgbWarningColor(colorWarning);
-    if (this.forecastData) {
-      this.chartService.addWarning(
-        color,
-        startingTime,
-        endingTime,
-        this.forecastData.yMaxValue,
-        `${this.selected.name}-box-${startingTime}-${endingTime}`);
-    }
     this.onResetSelectors();
     this.startingTime = -Infinity;
     this.endingTime = -Infinity;
@@ -175,11 +150,10 @@ export class UserComponent implements OnInit {
       user: this.selected.name,
       warningType,
     });
-    this.chartService.deleteWarning(`${this.selected.name}-box-${startingTime}-${endingTime}`);
   }
 
   switchUser(): void {
-    this.router.navigate(['/']).then()
+    this.router.navigate(['/']).then();
   }
 
   reviewTestCase(): void {
@@ -187,7 +161,6 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.chartService.createChart('forecast-data');
     this.activeRoute.params.subscribe((params: Params): void => {
       this.dispatchers.setSelected({ name: params['username'], testCase: Number(params['testCase']) });
     });

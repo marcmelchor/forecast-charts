@@ -16,6 +16,7 @@ import { MainComponent } from './UI/main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './UI/widgets/button/button.component';
 import { SelectComponent } from './UI/widgets/select/select.component';
+import { ChartComponent } from './UI/widgets/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SelectComponent } from './UI/widgets/select/select.component';
     MainComponent,
     ButtonComponent,
     SelectComponent,
+    ChartComponent,
   ],
   imports: [
     AppRoutingModule,
