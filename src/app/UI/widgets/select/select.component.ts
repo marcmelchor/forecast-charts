@@ -1,25 +1,30 @@
-import { Component, effect, EventEmitter, Input, Output } from '@angular/core';
-
-import { SignalService } from '../../../Data/services/signal.service';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent {
-  @Input() inputData: any;
-  @Input() isFlatData: boolean = false;
-  @Input() selectAttribute: string = '';
+export class SelectComponent implements OnInit, OnDestroy {
+  private resetSubscription: Subscription = new Subscription();
+
   @Input() defaultSelected: string = '';
+  @Input() group: string = '';
+  @Input() inputData: any;
   @Input() isIndexTheValue: boolean = false;
+  @Input() reset: Observable<string> = new Observable<string>();
+  @Input() selectAttribute!: string;
   @Output() onSelect: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private signalService: SignalService) {
-    effect((): void => {
-      const value: string = this.signalService.getMessage();
-      if (value.includes('Warning Selector')) {
-        const selectElement: HTMLSelectElement = document.getElementById(`selector-${this.defaultSelected}`) as HTMLSelectElement;
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    this.resetSubscription = this.reset.subscribe((value: string): void => {
+      if (value.includes(this.group)) {
+        const selectElement: HTMLSelectElement = document.
+          getElementById(`selector-${this.group}-${this.defaultSelected}`) as HTMLSelectElement;
         selectElement.value = this.defaultSelected;
       }
     });
@@ -30,5 +35,13 @@ export class SelectComponent {
     if (target.value) {
       this.onSelect.emit(target.value);
     }
+  }
+
+  isString(inputData: Object | string): boolean {
+    return typeof inputData === 'string';
+  }
+
+  ngOnDestroy(): void {
+    this.resetSubscription.unsubscribe();
   }
 }

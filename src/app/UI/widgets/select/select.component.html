@@ -2,7 +2,7 @@
   <select
     (change)="onSelected($event)"
     class="select"
-    [id]="'selector-' + defaultSelected">
+    [id]="'selector-' + group + '-' + defaultSelected">
     <option
       class="select--option"
       [value]="defaultSelected"
@@ -12,8 +12,8 @@
     </option>
     <option
       class="select--option"
-      [value]="isIndexTheValue ? i : data[selectAttribute]"
+      [value]="isIndexTheValue ? i : isString(data) ? data : data[selectAttribute]"
       *ngFor="let data of inputData; let i = index" [attr.data-index]="i">
-      {{ isFlatData ? data : data[selectAttribute] }}</option>
+      {{ isString(data) ? data : data[selectAttribute] }}</option>
   </select>
 </div>

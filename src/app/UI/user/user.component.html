@@ -36,22 +36,27 @@
 <div class="display--flex margin__bottom--5 selector">
   <app-select
     (change)="onSelectStarting($event)"
+    [group]="warningSelectorGroup"
     [inputData]="forecastData.data"
     [isIndexTheValue]="true"
+    [reset]="resetSelectorsSubject.asObservable()"
     selectAttribute="Time"
     defaultSelected="Starting Time">
   </app-select>
   <app-select
     (change)="onSelectEnding($event)"
+    [group]="warningSelectorGroup"
     [inputData]="startingTime === -Infinity ? forecastData.data : forecastData.data.slice(Number(startingTime) + 1)"
     [isIndexTheValue]="true"
+    [reset]="resetSelectorsSubject.asObservable()"
     selectAttribute="Time"
     defaultSelected="Ending Time">
   </app-select>
   <app-select
     (change)="onSelectWarning($event)"
+    [group]="warningSelectorGroup"
     [inputData]="warningTypes"
-    [isFlatData]="true"
+    [reset]="resetSelectorsSubject.asObservable()"
     defaultSelected="Warning Type">
   </app-select>
   <app-button

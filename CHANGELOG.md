@@ -46,3 +46,4 @@ All notable changes to this project will be documented in this file.
 - Select widget.
 - Refactor User Component.
 - Reset select components in user component after saving a warning.
+- Change from signals to Subjects and Subscriptions to isolate the component.

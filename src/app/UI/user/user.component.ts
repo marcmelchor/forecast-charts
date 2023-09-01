@@ -2,7 +2,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Chart } from 'chart.js/auto';
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 import * as ForecastDataSelector from '../../Domain/state/forecast-data/forecast-data.selector';
 import * as SelectedSelector from '../../Domain/state/selected/selected.selector';
@@ -14,7 +14,6 @@ import { ChartService } from '../../Data/services/chart.service';
 import { Dispatchers } from '../../Domain/state/dispatchers';
 import { ForecastData } from '../../Domain/models/forecast-data.model';
 import { Selected } from '../../Domain/models/selected.model';
-import { SignalService } from '../../Data/services/signal.service';
 import { TestCase } from '../../Domain/models/test-case.model';
 import { User } from '../../Domain/models/user.model';
 import { Warning, WarningTypes } from '../../Domain/models/warning.model';
@@ -82,19 +81,24 @@ export class UserComponent implements OnInit {
   protected startingTime: number = -Infinity;
   protected endingTime: number = -Infinity;
   protected warningType: string = '';
+  protected resetSelectorsSubject: Subject<string> = new Subject<string>();
+  protected warningSelectorGroup: string = 'Warnings';
 
   constructor(
     private activeRoute: ActivatedRoute,
     protected chartService: ChartService,
     private dispatchers: Dispatchers,
     private router: Router,
-    private signalService: SignalService,
     private store: Store<AppState>,
   ) {
   }
 
   onPagination(page: number): void {
     this.router.navigate([`/test/${this.selected.name}/${page}`]).then();
+  }
+
+  onResetSelectors(): void {
+    this.resetSelectorsSubject.next(`${this.warningSelectorGroup} ${Math.random()}`);
   }
 
   protected colorWarning(warningType: string): WarningTypes {
@@ -156,7 +160,7 @@ export class UserComponent implements OnInit {
         this.forecastData.yMaxValue,
         `${this.selected.name}-box-${startingTime}-${endingTime}`);
     }
-    this.signalService.setMessage(`Warning Selector ${Math.random()}`);
+    this.onResetSelectors();
     this.startingTime = -Infinity;
     this.endingTime = -Infinity;
     this.warningType = '';
