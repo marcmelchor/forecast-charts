@@ -17,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './UI/widgets/button/button.component';
 import { SelectComponent } from './UI/widgets/select/select.component';
 import { ChartComponent } from './UI/widgets/chart/chart.component';
+import { NgOptimizedImage } from '@angular/common';
+import { TableComponent } from './UI/widgets/table/table.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ChartComponent } from './UI/widgets/chart/chart.component';
     ButtonComponent,
     SelectComponent,
     ChartComponent,
+    TableComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -35,6 +38,7 @@ import { ChartComponent } from './UI/widgets/chart/chart.component';
     EffectsModule.forRoot([ForecastDataEffect, UserEffect, TestCaseEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     ReactiveFormsModule,
+    NgOptimizedImage,
   ],
   providers: [],
   bootstrap: [AppComponent]

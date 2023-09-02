@@ -1,0 +1,205 @@
+$background: #EBECF0;
+$table-background: #FFFFFF;
+$primary: #101824;
+$gray: #A0A7B1;
+$odd-row: #f6f9ff;
+$gray-background: #EDEEF1;
+$gray-mid: #F1F2F6;
+
+.table-widget {
+  border-radius: 16px;
+  background-color: $table-background;
+  padding: 24px;
+  border: 2px solid $gray-background;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+  text-align: left;
+  overflow-x: auto;
+  width: 95rem;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
+  &--table {
+    max-width: fit-content;
+    border-collapse: collapse;
+  }
+
+  &--caption {
+    font-size: 1.792rem;
+    font-weight: 700;
+    text-align: left;
+    margin: 8px 0;
+  }
+
+  &--columns {
+    border-top: 2px solid $gray-background;
+
+    &--column {
+      font-size: 1.4rem;
+      color: $gray;
+      padding: 20px 16px;
+    }
+  }
+
+  &--tfoot {
+    margin-top: 16px;
+    border-top: 2px solid $gray-background;
+  }
+
+  &--td {
+    padding: 8px 16px;
+    vertical-align: middle;
+  }
+
+  &--tr {
+    cursor: pointer;
+
+    &--td {
+      padding: 1rem 0 1rem 2rem;
+    }
+  }
+
+  &--tr:nth-child(odd) {
+    background-color: $odd-row;
+  }
+
+  &--tr:hover {
+    background-color: #e2ecff;
+  }
+}
+
+
+.table-row-count {
+  font-size: 1.28rem;
+  font-weight: 700;
+  background-color: $gray-mid;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 16px;
+  border-radius: 8px;
+}
+
+.team-member-profile {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  &--img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-info__name {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status {
+  border-radius: 8px;
+  padding: 8px;
+  font-weight: 700;
+}
+
+.status--active {
+  background-color: #EAFEF3;
+  color: #2ECC71;
+}
+
+.status--inactive {
+  background-color: #fff6e5;
+  color: #F4BD50;
+}
+
+.status--offline {
+  background-color: $gray-mid;
+  color: $gray;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  padding: 8px;
+  background-color: $gray-mid;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.tag::first-letter {
+  text-transform: uppercase;
+}
+
+.tag--design {
+  background-color: #f4efff;
+  color: #9A84DA;
+}
+
+.tag--QA {
+  color: #DF8FA8;
+  background-color: #fbdde7;
+}
+
+.tag--dev {
+  background-color: #eaf2ff;
+  color: #739FDC;
+}
+
+.tag--marketing {
+  background-color: #fff6e5;
+  color: #F4BD50;
+}
+
+.tag {
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  &__red {
+    background-color: rgba(246, 65, 45, 0.5);
+    color: #F4EFFF;
+  }
+
+  &__orange {
+    background-color: rgba(255, 152, 0, 0.5);
+    color: #739FDC;
+  }
+
+  &__yellow {
+    background-color: rgba(255, 236, 25, 0.5);
+    color: $primary;
+  }
+}
+
+.table-pagination {
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+
+  &--a {
+    display: block;
+    color: $primary;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  &--a:hover, &--a.active{
+    background-color: $odd-row;
+    text-decoration: underline;
+  }
+}

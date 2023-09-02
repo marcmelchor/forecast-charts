@@ -15,6 +15,7 @@ import { Selected } from '../../Domain/models/selected.model';
 import { TestCase } from '../../Domain/models/test-case.model';
 import { User } from '../../Domain/models/user.model';
 import { Warning, WarningTypes } from '../../Domain/models/warning.model';
+import { Item, Table } from '../widgets/table/table.model';
 
 @Component({
   selector: 'app-user',
@@ -40,7 +41,26 @@ export class UserComponent implements OnInit {
         .subscribe((warnings: Warning[]): void => {
           this.warningsByUserAndTestCase = warnings.filter((warning: Warning): boolean => {
             return warning.user === this.selected.name;
-          })
+          });
+          // Fill Warning table
+          if (this.warningTable.data.length) {
+            this.warningTable.data = [];
+          }
+          this.warningsByUserAndTestCase.map((warning: Warning): void => {
+            const item: Item[] = [
+              { value: this.forecastData.data[warning.endingTime].Time, isAction: false, tag: '' },
+              { value: this.forecastData.data[warning.startingTime].Time, isAction: false, tag: '' },
+              { value: warning.warningType, isAction: false, tag: warning.warningType },
+              { value: 'Remove Warning', isAction: true, tag: '' }
+            ];
+            this.warningTable.data.push(item);
+          });
+          // Due to the onChange lifecycle hook only check if the reference has changes, in an object or array this
+          // reference is not modified, so it's necessary to use the spread operator to create a new reference and then
+          // trigger the change detention.
+          this.warningTable.itemsName = `Warnings from ${this.selected.testCase}`;
+          this.warningTable = { ...this.warningTable };
+          // console.log('----', this.warningTable);
         });
       // Forecast data
       this.store.pipe(select(ForecastDataSelector.getForecastDataList))
@@ -68,6 +88,12 @@ export class UserComponent implements OnInit {
   protected resetSelectorsSubject: Subject<string> = new Subject<string>();
   protected warningSelectorGroup: string = 'Warnings';
   protected yMax: number = 0;
+  protected warningTable: Table = {
+    data: [],
+    headers: ['Ending Time', 'Starting Time', 'Warning Type', 'Action'],
+    itemsName: 'Warnings',
+    title: 'Warnings List',
+  };
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -93,14 +119,6 @@ export class UserComponent implements OnInit {
       return WarningTypes.ORANGE;
     }
     return WarningTypes.YELLOW;
-  }
-
-  protected rgbWarningColor(colorWarning: WarningTypes): string {
-    return colorWarning === WarningTypes.RED ?
-      'rgb(131, 20, 20, 0.5)' :
-      colorWarning === WarningTypes.ORANGE ?
-        'rgba(246,143,8,0.5)' :
-        'rgba(250,217,4,0.5)';
   }
 
   onSelectStarting(selected: Event): void {
@@ -158,6 +176,13 @@ export class UserComponent implements OnInit {
 
   reviewTestCase(): void {
     console.log('Review Test Case');
+  }
+
+  onActionTable(event: number): void {
+    const warning: Warning = this.warningsByUserAndTestCase[event];
+    if (warning) {
+      this.dispatchers.invokeRemoveWarning(warning);
+    }
   }
 
   ngOnInit(): void {

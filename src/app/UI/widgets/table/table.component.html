@@ -1,0 +1,114 @@
+<div class="table-widget">
+  <table class="table-widget--table">
+    <caption class="table-widget--caption">
+      {{ table.title }}
+      <span class="table-row-count">{{ table.data.length }} ({{ table.itemsName }})</span>
+    </caption>
+    <thead class="table-widget--columns">
+    <tr>
+      <th
+        *ngFor="let column of table.headers;"
+        class="table-widget--columns--column">{{ column }}
+      </th>
+    </tr>
+    </thead>
+    <tbody id="team-member-rows">
+    <tr
+      *ngFor="let items of data; let idx = index;"
+      class="table-widget--tr">
+      <td
+        *ngFor="let item of items;"
+        class="table-widget--tr--td">
+        <span
+          *ngIf="!item.isAction"
+          [ngClass]="item.tag ? 'tag tag__' + item.tag : ''">{{ item.value }}</span>
+        <app-button
+          *ngIf="item.isAction"
+          [buttonTittle]="item.value"
+          buttonType="small-secondary"
+          (onClick)="onAction(idx)">
+        </app-button>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot class="table-widget--tfoot">
+    <tr>
+      <td class="table-widget--td" colspan="4">
+        <ul class="table-pagination">
+          <li *ngFor="let _ of Array(numberOfPages) let i = index;" [attr.data-index]="i">
+            <a
+              class="table-pagination--a"
+              [ngClass]="i + 1 === startPagination ? 'active' : ''"
+              (click)="onBoardPagination(i + 1)"
+            >{{ i + 1 }}</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+<!--<div class="table-widget">
+  <table class="table-widget--table">
+    <caption class="table-widget--caption">
+      {{ attr.title }}
+      <span class="table-row-count">{{ teamMembers.length }} ({{ attr.type }})</span>
+    </caption>
+    <thead class="table-widget--columns">
+    <tr>
+      <th
+        *ngFor="let column of columns;"
+        class="table-widget--columns--column">{{ column }}
+      </th>
+    </tr>
+    </thead>
+    <tbody id="team-member-rows">
+    <tr
+      *ngFor="let teamMember of members() let i = index;"
+      [attr.data-index]="i"
+      class="table-widget--tr">
+      <td class="team-member-profile table-widget--tr--td">
+        <img class="team-member-profile--img" [ngSrc]="teamMember.src" [alt]="teamMember.name" width="50" height="50">
+        <span class="profile-info">
+          <span class="profile-info__name">
+            {{teamMember.name}}
+          </span>
+          <span class=profile-info__alias>
+            {{teamMember.alias}}
+          </span>
+        </span>
+      </td>
+      <td class="table-widget--tr--td">
+        <span [class]="'status status--' + teamMember.status">
+          {{teamMember.status}}
+        </span>
+      </td>
+      <td class="table-widget--tr--td">{{teamMember.email}}</td>
+      <td class="table-widget--tr--td">
+        <span class="tags">
+          <span
+            *ngFor="let tag of teamMember.tags"
+            [class]="'tag tag--' + tag"
+          >{{ tag }}</span>
+        </span>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot class="table-widget--tfoot">
+    <tr>
+      <td class="table-widget--td" colspan="4">
+        <ul class="table-pagination">
+          <li *ngFor="let _ of Array(numberOfPages) let i = index;" [attr.data-index]="i">
+            <a
+              class="table-pagination--a"
+              [ngClass]="i + 1 === startPagination ? 'active' : ''"
+              (click)="onBoardPagination(i + 1)"
+            >{{ i + 1 }}</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>-->

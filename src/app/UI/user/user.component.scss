@@ -1,52 +1,101 @@
-.forecast {
-  &--location {
-    margin: 4.5rem;
-    font-size: 4rem;
+.header {
+  display: flex;
+  width: 100%;
+  height: 15vh;
+  align-items: center;
+
+  &--description {
+    display: flex;
+    width: 50%;
+    padding-left: 5rem;
+
+    &--location {
+      margin: 4.5rem;
+      font-size: 4rem;
+
+      &--reviewer {
+        font-size: 2rem;
+      }
+    }
   }
 
-  &--chart-container {
-    width: 1000px;
-    margin: auto;
+  &--actions {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    padding-right: 5rem;
+
+    &--button {
+      display: flex;
+    }
+
+    &--button:not(:first-child) {
+      padding-left: 4rem;
+    }
   }
+}
+
+.chart {
+  width: 1000px;
+  margin: 3rem auto;
 }
 
 .pagination {
   display: flex;
   margin: 0 auto 3rem;
   justify-content: center;
-}
 
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  cursor: pointer;
-}
+  &--item {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 5px;
-}
+  &--item.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+  }
 
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
-}
-
-.buttons-container {
-  justify-content: space-between;
-  width: 46rem;
-
-  &--spacing {
-    margin-right: 2rem;
+  &--item:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
   }
 }
 
 .selector {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 900px;
-  margin: auto;
+  margin: 0 auto 5rem;
+}
+
+.divider {
+  display: flex;
+  width: 90rem;
+  margin: 3rem auto;
+
+  &--line {
+    width: 100%;
+  }
+}
+
+.warning-list {
+  display: flex;
+  flex-direction: column;
+
+  &--item {
+    display: flex;
+    width: 90rem;
+    margin: 0 auto 3rem;
+    justify-content: flex-end;
+    align-items: center;
+
+    &--text {
+      padding-right: 3rem;
+    }
+  }
 }

@@ -1,17 +1,18 @@
-<div class="display--flex" style="width: 100%; height: 15vh; align-items: center;">
-  <div class="display--flex" style="width: 50%; padding-left: 5rem;">
-    <p class="forecast--location">{{ forecastData.location }} <span
-      style="font-size: 2rem;"> (Review made by <b>{{ selected.name }})</b></span></p>
+<div class="header">
+  <div class="header--description">
+    <p class="header--description--location">{{ forecastData.location }}
+      <span class="header--description--location--reviewer"> (Review made by <b>{{ selected.name }})</b></span>
+    </p>
   </div>
-  <div class="display--flex" style="width: 50%; justify-content: flex-end; padding-right: 5rem;">
-    <div class="display--flex">
+  <div class="header--actions">
+    <div class="header--actions--button">
       <app-button
         buttonTittle="Switch User"
         buttonType="primary"
         (onClick)="switchUser()">
       </app-button>
     </div>
-    <div class="display--flex" style="padding-left: 4rem;">
+    <div class="header--actions--button">
       <app-button
         buttonTittle="Review Test Case"
         buttonType="secondary"
@@ -21,7 +22,7 @@
   </div>
 </div>
 
-<div class="forecast--chart-container" style="margin: 3rem auto;">
+<div class="chart">
   <app-chart
     chartName="forecast-data"
     chartType="line"
@@ -35,13 +36,14 @@
 
 <div class="pagination">
   <a
+    class="pagination--item"
     *ngFor="let test of tests"
     [ngClass]="Number(selected.testCase) === Number(test.testCase.replace(rex, '')) ? 'active' : ''"
     (click)="onPagination(Number(test.testCase.replace(rex, '')))">
     {{ test.testCase.replace(rex, '') }}</a>
 </div>
 
-<div class="display--flex margin__bottom--5 selector">
+<div class="selector">
   <app-select
     (change)="onSelectStarting($event)"
     [group]="warningSelectorGroup"
@@ -75,15 +77,15 @@
   </app-button>
 </div>
 
-<div class="display--flex" style="width: 90rem; margin: 3rem auto;">
-  <hr style="width: 100%"/>
+<div class="divider">
+  <hr class="divider--line"/>
 </div>
 
-<div class="display--block">
+<!--<div class="warning-list">
   <div
     *ngFor="let warning of warningsByUserAndTestCase"
-    class="display--flex" style="width: 90rem; margin: 0 auto 3rem; justify-content: flex-end; align-items: center;">
-    <div style="padding-right: 3rem;">
+    class="warning-list--item">
+    <div class="warning-list--item--text">
       <p>
         {{ forecastData.data[warning.startingTime].Time }} - {{ forecastData.data[warning.endingTime].Time }}
         - {{ warning.warningType.toUpperCase() }}
@@ -95,4 +97,9 @@
       (onClick)="removeWarningType(warning.startingTime, warning.endingTime, warning.warningType)">
     </app-button>
   </div>
-</div>
+</div>-->
+
+<app-table
+  [table]="warningTable"
+  (action)="onActionTable($event)">
+</app-table>
