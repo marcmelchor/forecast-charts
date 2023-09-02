@@ -43,22 +43,21 @@ export class UserComponent implements OnInit {
             return warning.user === this.selected.name;
           });
           // Fill Warning table
-          if (this.warningTable.data.length) {
+          if (this.warningTable?.data.length) {
             this.warningTable.data = [];
           }
           this.warningsByUserAndTestCase.map((warning: Warning): void => {
             const item: Item[] = [
-              { value: this.forecastData.data[warning.endingTime].Time, isAction: false, tag: '' },
-              { value: this.forecastData.data[warning.startingTime].Time, isAction: false, tag: '' },
+              { value: this.forecastData.data[warning.endingTime]?.Time, isAction: false, tag: '' },
+              { value: this.forecastData.data[warning.startingTime]?.Time, isAction: false, tag: '' },
               { value: warning.warningType, isAction: false, tag: warning.warningType },
               { value: 'Remove Warning', isAction: true, tag: '' }
             ];
-            this.warningTable.data.push(item);
+            this.warningTable?.data.push(item);
           });
           // Due to the onChange lifecycle hook only check if the reference has changes, in an object or array this
           // reference is not modified, so it's necessary to use the spread operator to create a new reference and then
           // trigger the change detention.
-          this.warningTable.itemsName = `Warnings from ${this.selected.testCase}`;
           this.warningTable = { ...this.warningTable };
           // console.log('----', this.warningTable);
         });
