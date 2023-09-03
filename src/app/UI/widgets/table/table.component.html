@@ -1,4 +1,6 @@
-<div class="container">
+<div 
+  [style]="data.length ? '' : 'display: none;'" 
+  class="container">
   <table class="table">
     <caption class="table--caption">
       {{ table.title }}
