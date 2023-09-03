@@ -83,19 +83,7 @@
   }
 }
 
-.warning-list {
-  display: flex;
-  flex-direction: column;
-
-  &--item {
-    display: flex;
-    width: 90rem;
-    margin: 0 auto 3rem;
-    justify-content: flex-end;
-    align-items: center;
-
-    &--text {
-      padding-right: 3rem;
-    }
-  }
+.table-container {
+  width: 95rem;
+  margin: auto;
 }

@@ -8,51 +8,48 @@ import { Item, Table } from './table.model';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, OnChanges {
-  @Output() action: EventEmitter<number> = new EventEmitter<number>();
-  @Input() table: Table = { data: [], headers: [], itemsName: '', title: '' };
   @Input() itemsOnPage: number = 5;
+  @Input() table: Table = { data: [], headers: [], itemsName: '', title: '' };
+  @Output() action: EventEmitter<number> = new EventEmitter<number>();
+
   protected data: Item[][] = [];
   protected numberOfPages: number = 0;
   protected startPagination: number = 1;
 
   ngOnInit(): void {
     this.numberOfPages = Math.ceil(this.table.data.length / this.itemsOnPage);
-    this.data = this.members();
-    console.log('ngOnInit', this.numberOfPages);
+    this.data = this.filteredData();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('CHANGES', changes);
-    this.numberOfPages = Math.ceil(this.table.data.length / this.itemsOnPage);
-    this.table.data = changes['table'].currentValue.data;
-    // When there are multiple pages and is removed the only item from the last page, it forces the return to the
-    // n-page - 1
-    if (this.startPagination > this.numberOfPages && !changes['table'].firstChange && this.startPagination > 1) {
-      this.startPagination--;
-      if (this.startPagination > this.numberOfPages) {
-        this.startPagination = 1;
-      }
-    }
-    console.log('XXXX', this.numberOfPages, this.startPagination);
-    this.data = this.members();
+  filteredData(): Item[][] {
+    return this.table.data.filter((_: Item[], idx: number) => {
+      return (((this.startPagination - 1) * this.itemsOnPage) < idx + 1) && (idx + 1 <= this.startPagination * this.itemsOnPage);
+    });
   }
 
   onAction(id: number): void {
     this.action.emit(id);
   }
 
-  members(): Item[][] {
-    return this.table.data.filter((_: Item[], idx: number) => {
-      return (((this.startPagination - 1) * this.itemsOnPage) < idx + 1) && (idx + 1 <= this.startPagination * this.itemsOnPage);
-    });
+  onBoardPagination(page: number): void {
+    this.startPagination = page;
+    this.data = this.filteredData();
   }
 
-  onBoardPagination(page: number): void {
-    console.log('ON BOARD', page)
-    this.startPagination = page;
-    this.data = this.table.data.filter((_: Item[], idx: number) => {
-      return (((this.startPagination - 1) * this.itemsOnPage) < idx + 1) && (idx + 1 <= this.startPagination * this.itemsOnPage);
-    });
+  ngOnChanges(changes: SimpleChanges): void {
+    this.numberOfPages = Math.ceil(this.table.data.length / this.itemsOnPage);
+    this.table.data = changes['table'].currentValue.data;
+    /*
+      When there are multiple pages and is removed the only item from the last page, it forces the return to the
+      (n-page - 1)
+    */
+    if (this.startPagination > this.numberOfPages && !changes['table'].firstChange && this.startPagination > 1) {
+      this.startPagination--;
+      if (this.startPagination > this.numberOfPages) {
+        this.startPagination = 1;
+      }
+    }
+    this.data = this.filteredData();
   }
 
   protected readonly Array: ArrayConstructor = Array;

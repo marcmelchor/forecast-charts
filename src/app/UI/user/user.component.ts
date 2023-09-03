@@ -55,11 +55,12 @@ export class UserComponent implements OnInit {
             ];
             this.warningTable?.data.push(item);
           });
-          // Due to the onChange lifecycle hook only check if the reference has changes, in an object or array this
-          // reference is not modified, so it's necessary to use the spread operator to create a new reference and then
-          // trigger the change detention.
+          /*
+             Due to the onChange lifecycle hook only check if the reference has changes, in an object or array this
+             reference is not modified, so it's necessary to use the spread operator to create a new reference and then
+             trigger the change detention.
+           */
           this.warningTable = { ...this.warningTable };
-          // console.log('----', this.warningTable);
         });
       // Forecast data
       this.store.pipe(select(ForecastDataSelector.getForecastDataList))
@@ -102,14 +103,6 @@ export class UserComponent implements OnInit {
   ) {
   }
 
-  onPagination(page: number): void {
-    this.router.navigate([`/test/${this.selected.name}/${page}`]).then();
-  }
-
-  onResetSelectors(): void {
-    this.resetSelectorsSubject.next(`${this.warningSelectorGroup} ${Math.random()}`);
-  }
-
   protected colorWarning(warningType: string): WarningTypes {
     if (warningType === this.warningTypes[0]) {
       return WarningTypes.RED;
@@ -118,6 +111,14 @@ export class UserComponent implements OnInit {
       return WarningTypes.ORANGE;
     }
     return WarningTypes.YELLOW;
+  }
+
+  onPagination(page: number): void {
+    this.router.navigate([`/test/${this.selected.name}/${page}`]).then();
+  }
+
+  onResetSelectors(): void {
+    this.resetSelectorsSubject.next(`${this.warningSelectorGroup} ${Math.random()}`);
   }
 
   onSelectStarting(selected: Event): void {
@@ -156,17 +157,6 @@ export class UserComponent implements OnInit {
     this.startingTime = -Infinity;
     this.endingTime = -Infinity;
     this.warningType = '';
-  }
-
-  removeWarningType(startingTime: number, endingTime: number, warning: string): void {
-    const warningType: WarningTypes = this.colorWarning(warning);
-    this.dispatchers.invokeRemoveWarning({
-      startingTime,
-      endingTime,
-      testCase: this.selected.testCase,
-      user: this.selected.name,
-      warningType,
-    });
   }
 
   switchUser(): void {

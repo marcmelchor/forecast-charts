@@ -81,25 +81,9 @@
   <hr class="divider--line"/>
 </div>
 
-<!--<div class="warning-list">
-  <div
-    *ngFor="let warning of warningsByUserAndTestCase"
-    class="warning-list--item">
-    <div class="warning-list--item--text">
-      <p>
-        {{ forecastData.data[warning.startingTime].Time }} - {{ forecastData.data[warning.endingTime].Time }}
-        - {{ warning.warningType.toUpperCase() }}
-      </p>
-    </div>
-    <app-button
-      buttonTittle="Remove Warning"
-      buttonType="small-secondary"
-      (onClick)="removeWarningType(warning.startingTime, warning.endingTime, warning.warningType)">
-    </app-button>
-  </div>
-</div>-->
-
-<app-table
-  [table]="warningTable"
-  (action)="onActionTable($event)">
-</app-table>
+<div class="table-container">
+  <app-table
+    [table]="warningTable"
+    (action)="onActionTable($event)">
+  </app-table>
+</div>
