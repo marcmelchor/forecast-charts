@@ -48,8 +48,8 @@ export class UserComponent implements OnInit {
           }
           this.warningsByUserAndTestCase.map((warning: Warning): void => {
             const item: Item[] = [
-              { value: this.forecastData.data[warning.endingTime]?.Time, isAction: false, tag: '' },
               { value: this.forecastData.data[warning.startingTime]?.Time, isAction: false, tag: '' },
+              { value: this.forecastData.data[warning.endingTime]?.Time, isAction: false, tag: '' },
               { value: warning.warningType, isAction: false, tag: warning.warningType },
               { value: 'Remove Warning', isAction: true, tag: '' }
             ];
@@ -90,7 +90,7 @@ export class UserComponent implements OnInit {
   protected yMax: number = 0;
   protected warningTable: Table = {
     data: [],
-    headers: ['Ending Time', 'Starting Time', 'Warning Type', 'Action'],
+    headers: [ 'Starting Time', 'Ending Time', 'Warning Type', 'Action' ],
     itemsName: 'Warnings',
     title: 'Warnings List',
   };
