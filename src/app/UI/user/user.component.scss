@@ -8,9 +8,10 @@
     display: flex;
     width: 50%;
     padding-left: 5rem;
+    height: 100%;
 
     &--location {
-      margin: 4.5rem;
+      margin: auto;
       font-size: 4rem;
 
       &--reviewer {
@@ -23,14 +24,16 @@
     display: flex;
     width: 50%;
     justify-content: flex-end;
-    padding-right: 5rem;
+    margin-right: 3rem;
+    height: 100%;
+    align-items: center;
 
     &--button {
       display: flex;
     }
 
     &--button:not(:first-child) {
-      padding-left: 4rem;
+      margin-left: 3rem;
     }
   }
 }

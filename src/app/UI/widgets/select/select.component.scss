@@ -1,8 +1,3 @@
-
-/*
-Design from https://codepen.io/raubaca/pen/bGWmZje
- */
-
 $glass: rgba(255, 255, 255, 0.2);
 $glass-icon: rgba(255, 255, 255, 0.3);
 $gradient: linear-gradient(35deg, red, purple);
@@ -10,32 +5,29 @@ $option: #320a28;
 
 .body-select {
   background: $gradient;
+  border-radius: 0.8rem;
 }
 
-/* <select> styles */
 .select {
-  /* Reset */
+  border-radius: 0.8rem;
   appearance: none;
   border: 0;
   outline: 0;
   font: inherit;
-  /* Personalize */
   width: 18rem;
   height: 3em;
   padding: 0 4em 0 1em;
   background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em,
   linear-gradient(to left, $glass-icon 3em, $glass 3em);
   color: white;
-  border-radius: 0.25em;
   box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  /* <option> colors */
+
   &--option {
     color: inherit;
     background-color: $option;
   }
 
-  /* Remove focus outline */
   &:focus {
     outline: none;
   }
