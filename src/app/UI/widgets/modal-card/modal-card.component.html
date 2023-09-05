@@ -1,0 +1,16 @@
+<div
+  [id]="modalName"
+  class="modal">
+  <div class="modal--container">
+    <div class="modal--container--box">
+      <span
+        (click)="onClose()"
+        [ngClass]="hasExit ? '' : 'modal__not-show-content'"
+        class="modal--container--box--exit-item">
+        x</span>
+      <div class="modal--container--box--content">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

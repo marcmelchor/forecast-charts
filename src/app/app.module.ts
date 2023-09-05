@@ -19,6 +19,7 @@ import { SelectComponent } from './UI/widgets/select/select.component';
 import { ChartComponent } from './UI/widgets/chart/chart.component';
 import { NgOptimizedImage } from '@angular/common';
 import { TableComponent } from './UI/widgets/table/table.component';
+import { ModalCardComponent } from './UI/widgets/modal-card/modal-card.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TableComponent } from './UI/widgets/table/table.component';
     SelectComponent,
     ChartComponent,
     TableComponent,
+    ModalCardComponent,
   ],
   imports: [
     AppRoutingModule,
