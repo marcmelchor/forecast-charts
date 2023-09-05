@@ -49,7 +49,12 @@ All notable changes to this project will be documented in this file.
 - Change from signals to Subjects and Subscriptions to isolate the component.
 
 
-## [0.4.1]
+## [0.4.1] -- 2023-09-05
 
 - Chart functionality encapsulated in a component.
 - Table component created.
+
+
+## [0.4.2] -- 2023-09-05
+
+- Modal component.
