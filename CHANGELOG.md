@@ -58,3 +58,4 @@ All notable changes to this project will be documented in this file.
 ## [0.4.2] -- 2023-09-05
 
 - Modal component.
+- Modal component at pushing switch user.

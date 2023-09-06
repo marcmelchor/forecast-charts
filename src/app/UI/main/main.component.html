@@ -1,19 +1,13 @@
-<div class="display--flex margin__top--5">
-  <div class="margin--auto">
-    <div class="display--flex">
-      <p class="margin--auto">Time to choose a user</p>
-    </div>
-    <div class="display--block margin__top--2 body-select">
-      <app-select
-        (change)="onSelectUser($event)"
-        [inputData]="users"
-        selectAttribute="name"
-        defaultSelected="Choose an user">
-      </app-select>
-    </div>
+<div class="switch-user">
+  <div class="switch-user--title">
+    <p>Time to choose a user</p>
+  </div>
+  <div class="switch-user--select">
+    <app-select
+      (change)="onSelectUser($event)"
+      [inputData]="users"
+      selectAttribute="name"
+      defaultSelected="Choose an user">
+    </app-select>
   </div>
 </div>
-<app-modal-card
-  [hasExit]="true"
-  modalName="select-user-modal">
-</app-modal-card>

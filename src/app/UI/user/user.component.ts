@@ -80,20 +80,22 @@ export class UserComponent implements OnInit {
         });
     });
 
-  protected rex: RegExp = /\D/g;
-  protected warningTypes: string[] = ['red', 'orange', 'yellow'];
-  protected startingTime: number = -Infinity;
+  protected closeModalSubject: Subject<void> = new Subject();
   protected endingTime: number = -Infinity;
-  protected warningType: string = '';
   protected resetSelectorsSubject: Subject<string> = new Subject<string>();
+  protected rex: RegExp = /\D/g;
+  protected startingTime: number = -Infinity;
+  protected switchUserSubject: Subject<void> = new Subject();
   protected warningSelectorGroup: string = 'Warnings';
-  protected yMax: number = 0;
   protected warningTable: Table = {
     data: [],
     headers: [ 'Starting Time', 'Ending Time', 'Warning Type', 'Action' ],
     itemsName: 'Warnings',
     title: 'Warnings List',
   };
+  protected warningType: string = '';
+  protected warningTypes: string[] = ['red', 'orange', 'yellow'];
+  protected yMax: number = 0;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -160,7 +162,15 @@ export class UserComponent implements OnInit {
   }
 
   switchUser(): void {
-    this.router.navigate(['/']).then();
+    this.switchUserSubject.next();
+  }
+
+  onSelectUser(selected: Event): void {
+    const target: HTMLSelectElement = selected.target as HTMLSelectElement;
+    if (target.value) {
+      this.router.navigate([`/test/${target.value}/1`]).then();
+      this.closeModalSubject.next();
+    }
   }
 
   reviewTestCase(): void {
