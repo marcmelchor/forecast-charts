@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 
 import * as TestCaseActions from './test-case.actions';
 import { AppState } from '../app.state';
-import { TestCaseService } from '../../../Data/services/test-case.service';
+import { TestCaseService } from '../../../Data/services/test-case/test-case.service';
 
 @Injectable({ providedIn: 'root' })
 export class TestCaseEffect {

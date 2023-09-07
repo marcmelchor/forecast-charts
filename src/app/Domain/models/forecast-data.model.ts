@@ -9,7 +9,7 @@ export interface Forecast {
   Time: string;
   WIND_GUST_ACC: number;
   WIND_GUST: number;
-  Warning: string;
+  Warning: number;
   Validity: string;
   Intensity: string;
 }

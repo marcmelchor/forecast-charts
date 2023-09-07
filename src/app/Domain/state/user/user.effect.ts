@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 
 import * as UserActions from './user.actions';
 import { AppState } from '../app.state';
-import { UserService } from '../../../Data/services/user.service';
+import { UserService } from '../../../Data/services/user/user.service';
 
 
 @Injectable({ providedIn: 'root' })
