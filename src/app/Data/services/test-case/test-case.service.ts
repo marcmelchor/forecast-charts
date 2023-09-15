@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 
@@ -10,10 +10,6 @@ export class TestCaseService {
   }
 
   getTestCases(): Observable<string[]> {
-    return this.http
-      .get<string[]>(`${environment.dataPath}test_cases.json`)
-      .pipe(
-        map((testCases: string[]) => testCases)
-      );
+    return this.http.get<string[]>(`${environment.dataPath}test_cases.json`);
   }
 }
