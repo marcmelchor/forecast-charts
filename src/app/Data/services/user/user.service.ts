@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+
+import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -8,10 +10,6 @@ export class UserService {
   }
 
   getUsers(): Observable<string[]> {
-    return this.http
-      .get<string[]>('../../../assets/data/users.json')
-      .pipe(
-        map((users: string[]) => users)
-      );
+    return this.http.get<string[]>(`${environment.dataPath}users.json`);
   }
 }

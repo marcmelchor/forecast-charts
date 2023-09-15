@@ -59,3 +59,10 @@ All notable changes to this project will be documented in this file.
 
 - Modal component.
 - Modal component at pushing switch user.
+
+
+## [0.5.0]
+
+- Tests for the ForecastService.
+- Tests for the TestCaseService.
+- Tests for the UserService.
